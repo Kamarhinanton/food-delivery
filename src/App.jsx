@@ -1,13 +1,13 @@
 import './App.css';
 import './null.scss'
 import HeaderPanel from './components/HeaderPanel/HeaderPanel'
-import Orders from './components/Orders/Orders'
+import OrdersContainer from "./components/Orders/OrdersContainer";
 
 function App() {
   return (
     <div>
         <HeaderPanel/>
-        <Orders/>
+        <OrdersContainer/>
     </div>
   );
 }

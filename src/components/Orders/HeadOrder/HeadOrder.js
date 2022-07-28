@@ -6,7 +6,7 @@ const HeadOrder = () => {
             <ul className='head-order__content'>
                 <li>Order ID</li>
                 <li>Order Name</li>
-                <li>User Email</li>
+                <li>User Location</li>
                 <li>Order Sum</li>
                 <li>Create Date</li>
             </ul>

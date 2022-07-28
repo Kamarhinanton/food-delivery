@@ -1,14 +1,14 @@
 import '../HeadOrder/HeadOrder.scss'
 
-const Order = () => {
+const Order = (props) => {
     return(
         <div className='head-order'>
             <ul className='head-order__content light'>
-                <li>Order ID</li>
-                <li>Order Name</li>
-                <li>User Email</li>
-                <li>Order Sum</li>
-                <li>Create Date</li>
+                <li>{props.orderId}</li>
+                <li>{props.orderName}</li>
+                <li>{props.orderLocation}</li>
+                <li>{props.orderCost}</li>
+                <li>{props.orderData}</li>
             </ul>
         </div>
     )

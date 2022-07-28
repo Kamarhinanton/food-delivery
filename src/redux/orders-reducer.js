@@ -1,4 +1,4 @@
-const SET_USERS = 'SET_USERS';
+const SET_ORDERS = 'SET_ORDERS';
 
 let initialState = {
     orderId: [
@@ -33,8 +33,8 @@ let initialState = {
 
 const orderReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SET_USERS :
-            return {...state, users: action.users}
+        case SET_ORDERS :
+            return {...state, orderId: action.orderId}
         default:
             return state;
     }
@@ -42,4 +42,4 @@ const orderReducer = (state = initialState, action) => {
 
 export default orderReducer;
 
-export const setUsers = (users) => ({type: SET_USERS, users})
+export const setOrderId = (orderId) => ({type: SET_ORDERS, orderId})
