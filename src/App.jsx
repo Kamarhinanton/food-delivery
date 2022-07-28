@@ -1,18 +1,14 @@
 import './App.css';
+import './null.scss'
 import HeaderPanel from './components/HeaderPanel/HeaderPanel'
 import Orders from './components/Orders/Orders'
-import Pagination from './components/Orders/Pagination/Pagination'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div>
         <HeaderPanel/>
-      </header>
-       <Orders/>
-     <Pagination/>
+        <Orders/>
     </div>
-    
   );
 }
 
