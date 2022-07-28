@@ -1,0 +1,38 @@
+.header-container {
+  background-color: #343C38;
+  padding: 15px 25px;
+}
+
+.header-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.white-text {
+  color: #ffffff;
+}
+
+.green-text {
+  color: #00FF47;
+}
+
+.sj-logo {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 5px;
+}
+
+.logo-text {
+  font-weight: bold;
+  font-size: 55px;
+  line-height: 25px;
+  letter-spacing: -0.06em;
+}
+/*# sourceMappingURL=HeaderPanel.css.map */
