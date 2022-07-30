@@ -1,10 +1,10 @@
 import {connect} from "react-redux";
 import Orders from "./Orders";
-import {setOrderId} from "../../redux/orders-reducer";
+import {getOrders} from "../../redux/orders-reducer";
 
 const OrdersContainer = (props) => {
     return (
-        <Orders order = {props.order}/>
+        <Orders order = {props.order} getOrders = {props.getOrders}/>
     )
 }
 
@@ -14,11 +14,5 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        setOrderId: () => {dispatch(setOrderId())},
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(OrdersContainer);
+export default connect(mapStateToProps, {getOrders})(OrdersContainer);
 

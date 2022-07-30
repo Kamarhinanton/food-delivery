@@ -1,3 +1,5 @@
+import {ordersAPI} from "../api/api";
+
 const SET_ORDERS = 'SET_ORDERS';
 
 let initialState = {
@@ -25,10 +27,6 @@ let initialState = {
             "imageLink": "https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/jjv42bahfmy7ix2iaoib"
         }
     ],
-    orderName: null,
-    userEmail: null,
-    orderSum: null,
-    createDate: null
 }
 
 const orderReducer = (state = initialState, action) => {
@@ -43,3 +41,9 @@ const orderReducer = (state = initialState, action) => {
 export default orderReducer;
 
 export const setOrderId = (orderId) => ({type: SET_ORDERS, orderId})
+
+export const getOrders = () => (dispatch) =>{
+    ordersAPI.getOrders().then(response => {
+        dispatch(setOrderId(response.data));
+    })
+}
