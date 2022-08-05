@@ -1,15 +1,24 @@
 import {ordersAPI} from "../api/api";
 
 const SET_ORDERS = 'SET_ORDERS';
+const SET_OFFSET = 'SET_OFFSET';
 
 let initialState = {
-    orderId: [],
+    orders: [],
+    offset: 0,
+    limitOrders: 5,
 }
 
 const orderReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_ORDERS :
-            return {...state, orderId: action.orderId}
+            let newOrders = {orders: action.orders};
+            let stateCopy = {...state};
+            stateCopy.orders = [...state.orders];
+            newOrders.orders.map(order => stateCopy.orders.push(order))
+            return stateCopy;
+        case SET_OFFSET:
+            return {...state, offset: action.offset}
         default:
             return state;
     }
@@ -17,10 +26,13 @@ const orderReducer = (state = initialState, action) => {
 
 export default orderReducer;
 
-export const setOrderId = (orderId) => ({type: SET_ORDERS, orderId})
+export const setOrders = (orders) => ({type: SET_ORDERS, orders})
+export const setOffset = (offset) => ({type: SET_OFFSET, offset})
 
-export const getOrders = () => (dispatch) =>{
-    ordersAPI.getOrders().then(response => {
-        dispatch(setOrderId(response.data));
-    })
+export const getOrders= (limitOrders, offset) => {
+    return (dispatch) => {
+        ordersAPI.getOrdersAPI(limitOrders, offset).then(data => {
+            dispatch(setOrders(data))
+        })
+    }
 }

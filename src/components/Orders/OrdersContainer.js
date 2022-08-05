@@ -1,10 +1,10 @@
 import {connect} from "react-redux";
 import Orders from "./Orders";
-import {getOrders} from "../../redux/orders-reducer";
+import {getOrders, setOffset} from "../../redux/orders-reducer";
 
 const OrdersContainer = (props) => {
     return (
-        <Orders order = {props.order} getOrders = {props.getOrders}/>
+        <Orders order = {props.order} getOrders = {props.getOrders} setOffset = {props.setOffset}/>
     )
 }
 
@@ -14,5 +14,5 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {getOrders})(OrdersContainer);
+export default connect(mapStateToProps, {getOrders, setOffset})(OrdersContainer);
 
