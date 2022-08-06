@@ -6,8 +6,8 @@ const instance = axios.create({
 })
 
 export const ordersAPI = {
-    getOrdersAPI (limitOrders = 5, offset = 0) {
-        return instance.get(`/orders?limit=${limitOrders}&offset=${offset}`, {
+    getOrdersAPI ( offset = 0) {
+        return instance.get(`/orders?limit=5&offset=${offset}`, {
         })
             .then(response => {
                 return response.data;

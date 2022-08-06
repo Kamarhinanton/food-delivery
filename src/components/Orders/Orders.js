@@ -1,14 +1,22 @@
-import React, {useState} from 'react';
-import './Orders.scss'
+import './Orders.scss';
 import HeadOrder from "./HeadOrder/HeadOrder";
 import Order from "./Order/Order";
-import {useEffect} from "react";
+import {useEffect, useRef, useState} from "react";
 
 const Orders = (props)=> {
-    let addNewOrders = () => {
-        let offSet = 0;
-        props.getOrders(props.order.limitOrders, props.order.offset)
-        props.setOffset(offSet + 5)
+    const [offSet, setOffSet] = useState(0);
+    const effectRan = useRef(false);
+
+    useEffect(() => {
+        if(effectRan.current===false){
+            props.getOrders(offSet)
+            setOffSet(offSet + 5)
+            return ()=> effectRan.current = true;
+        }
+    }, [offSet]);
+
+    const getMoreOrders = () => {
+        props.getOrders(offSet)
     }
 
     let orderLinks = props.order.orders.map(item => <Order
@@ -25,7 +33,7 @@ const Orders = (props)=> {
             <HeadOrder/>
           {orderLinks}
           <div>
-              <button onClick={addNewOrders}>Load more</button>
+              {props.order.orders.length%5===0?<button onClick={getMoreOrders}>Load more</button>:<button disabled>Load more</button>}
           </div>
       </div>
     )
