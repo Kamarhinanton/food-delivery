@@ -1,22 +1,21 @@
 import './Orders.scss';
 import HeadOrder from "./HeadOrder/HeadOrder";
 import Order from "./Order/Order";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useRef} from "react";
 
 const Orders = (props)=> {
-    const [offSet, setOffSet] = useState(0);
     const effectRan = useRef(false);
 
     useEffect(() => {
         if(effectRan.current===false){
-            props.getOrders(offSet)
-            setOffSet(offSet + 5)
+            getMoreOrders()
             return ()=> effectRan.current = true;
         }
-    }, [offSet]);
+    });
 
     const getMoreOrders = () => {
-        props.getOrders(offSet)
+        props.setOffset(props.order.offset + 5)
+        props.getOrders(props.order.offset)
     }
 
     let orderLinks = props.order.orders.map(item => <Order
