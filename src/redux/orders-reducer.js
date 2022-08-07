@@ -6,6 +6,7 @@ const SET_OFFSET = 'SET_OFFSET';
 let initialState = {
     orders: [],
     offset: 0,
+    limit: 5
 }
 
 const orderReducer = (state = initialState, action) => {
@@ -28,9 +29,9 @@ export default orderReducer;
 export const setOrders = (orders) => ({type: SET_ORDERS, orders})
 export const setOffset = (offset) => ({type: SET_OFFSET, offset})
 
-export const getOrders= (offset) => {
+export const getOrders= (offset, limit) => {
     return (dispatch) => {
-        ordersAPI.getOrdersAPI(offset).then(data => {
+        ordersAPI.getOrdersAPI(offset, limit).then(data => {
             dispatch(setOrders(data))
         })
     }

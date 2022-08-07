@@ -14,25 +14,29 @@ const Orders = (props)=> {
     });
 
     const getMoreOrders = () => {
-        props.setOffset(props.order.offset + 5)
-        props.getOrders(props.order.offset)
+        props.getOrders(props.order.offset, props.order.limit)
+        props.setOffset(props.order.offset + props.order.limit)
+    }
+
+    const setDisabled = () => {
+       return props.order.orders.length%props.order.limit===0
     }
 
     let orderLinks = props.order.orders.map(item => <Order
         key={item.orderId}
         orderId={item.orderId}
-        // orderName={item.establishmentName}
-        // orderLocation = {item.establishmentLocation}
-        // orderData = {item.createDate}
-        // orderCost = {item.deliveryCost}
+        orderName={item.establishment.establishmentName}
+        orderLocation = {item.establishment.establishmentLocation}
+        orderImage = {item.establishment.imageLink}
+        orderStatus = {item.orderStatus}
 
     />)
     return (
       <div className='orders-container'>
             <HeadOrder/>
-          {orderLinks}
+            {orderLinks}
           <div>
-              {props.order.orders.length%5===0?<button onClick={getMoreOrders}>Load more</button>:<button disabled>Load more</button>}
+              {setDisabled()?<button onClick={getMoreOrders}>Load more</button>:<button disabled>Load more</button>}
           </div>
       </div>
     )
