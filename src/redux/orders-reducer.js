@@ -6,7 +6,7 @@ const SET_OFFSET = 'SET_OFFSET';
 let initialState = {
     orders: [],
     offset: 0,
-    limit: 5
+    limit: 4
 }
 
 const orderReducer = (state = initialState, action) => {

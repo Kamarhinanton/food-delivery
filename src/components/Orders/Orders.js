@@ -4,14 +4,14 @@ import Order from "./Order/Order";
 import {useEffect, useRef} from "react";
 
 const Orders = (props)=> {
-    const effectRan = useRef(false);
+    // const effectRan = useRef(false);
 
     useEffect(() => {
-        if(effectRan.current===false){
             getMoreOrders()
-            return ()=> effectRan.current = true;
-        }
-    });
+        // if(effectRan.current===false){
+        //     return ()=> effectRan.current = true;
+        // }
+    }, []);
 
     const getMoreOrders = () => {
         props.getOrders(props.order.offset, props.order.limit)
@@ -22,8 +22,8 @@ const Orders = (props)=> {
        return props.order.orders.length%props.order.limit===0
     }
 
-    let orderLinks = props.order.orders.map(item => <Order
-        key={item.orderId}
+    let orderLinks = props.order.orders.map((item, id) => <Order
+        key={id}
         orderId={item.orderId}
         orderName={item.establishment.establishmentName}
         orderLocation = {item.establishment.establishmentLocation}
