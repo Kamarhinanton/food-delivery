@@ -1,10 +1,10 @@
-import React from 'react';
-import './HeaderPanel.scss';
-import Logo from './Logo/Logo';
+import React from "react";
+import "./HeaderPanel.scss";
+import Logo from "./Logo/Logo";
 
 const HeaderPanel = () => (
-  <header className='header'>
-    <div className='header__content'>
+  <header className="header">
+    <div className="header__content">
       <Logo/>
     </div>
   </header>

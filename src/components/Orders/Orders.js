@@ -1,7 +1,7 @@
-import './Orders.scss';
-import HeadOrder from './HeadOrder/HeadOrder';
-import Order from './Order/Order';
-import {useEffect} from 'react';
+import "./Orders.scss";
+import HeadOrder from "./HeadOrder/HeadOrder";
+import Order from "./Order/Order";
+import {useEffect} from "react";
 
 const Orders = (props) => {
   useEffect(() => {
@@ -27,7 +27,7 @@ const Orders = (props) => {
 
   />)
   return (
-    <div className='orders-container'>
+    <div className="orders-container">
       <HeadOrder/>
       {orderLinks}
       <div>

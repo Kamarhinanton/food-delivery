@@ -1,6 +1,6 @@
-import {connect} from 'react-redux';
-import Orders from './Orders';
-import {getOrders, setOffset} from '../../redux/orders-reducer';
+import {connect} from "react-redux";
+import Orders from "./Orders";
+import {getOrders, setOffset} from "../../redux/orders-reducer";
 
 const OrdersContainer = (props) => {
   return (

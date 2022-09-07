@@ -1,8 +1,8 @@
 import {ordersAPI} from "../api/api";
 
-const SET_ORDERS = 'SET_ORDERS';
-const SET_OFFSET = 'SET_OFFSET';
-const SET_TOTAL = 'SET_TOTAL';
+const SET_ORDERS = "SET_ORDERS";
+const SET_OFFSET = "SET_OFFSET";
+const SET_TOTAL = "SET_TOTAL";
 
 let initialState = {
   orders: [],
