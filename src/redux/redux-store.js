@@ -4,7 +4,7 @@ import thunkMiddleware from "redux-thunk";
 
 
 let reducers = combineReducers({
-    orderContent: orderReducer
+  orderContent: orderReducer
 });
 
 let store = legacy_createStore(reducers, applyMiddleware(thunkMiddleware))

@@ -6,8 +6,8 @@ import OrdersContainer from "./components/Orders/OrdersContainer";
 function App() {
   return (
     <div>
-        <HeaderPanel/>
-        <OrdersContainer/>
+      <HeaderPanel/>
+      <OrdersContainer/>
     </div>
   );
 }

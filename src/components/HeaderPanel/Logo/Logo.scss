@@ -1,8 +1,9 @@
-.logo{
+.logo {
   position: relative;
   height: 65px;
   width: 375px;
-  &__top{
+
+  &__top {
     position: absolute;
     top: 0;
     left: 0;
@@ -11,19 +12,23 @@
     font-weight: bold;
     text-indent: 5px;
   }
-  &__bottom{
+
+  &__bottom {
     position: absolute;
     bottom: 0;
     left: 0;
+
     &-text {
       font-weight: bold;
       font-size: 55px;
       line-height: 55px;
       letter-spacing: -0.06em;
-      &.white{
+
+      &.white {
         color: #ffffff;
       }
-      &.green{
+
+      &.green {
         color: #00FF47;
       }
     }
