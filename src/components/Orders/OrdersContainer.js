@@ -5,7 +5,7 @@ import {getOrders, setOffset} from "../../redux/orders-reducer";
 const OrdersContainer = (props) => {
   return (
     <Orders order={props.order} getOrders={props.getOrders} setOffset={props.setOffset}/>
-  )
+  );
 }
 
 let mapStateToProps = (state) => {

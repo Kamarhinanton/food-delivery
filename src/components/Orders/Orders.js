@@ -9,12 +9,12 @@ const Orders = (props) => {
   }, []);
 
   const getMoreOrders = () => {
-    props.getOrders(props.order.offset, props.order.limit)
-    props.setOffset(props.order.offset + props.order.limit)
+    props.getOrders(props.order.offset, props.order.limit);
+    props.setOffset(props.order.offset + props.order.limit);
   }
 
   const setDisabled = () => {
-    return props.order.orders.length == props.order.total
+    return props.order.orders.length == props.order.total;
   }
 
   let orderLinks = props.order.orders.map((item, id) => <Order
@@ -34,7 +34,7 @@ const Orders = (props) => {
         {setDisabled() ? <button disabled>Load more</button> : <button onClick={getMoreOrders}>Load more</button>}
       </div>
     </div>
-  )
+  );
 }
 
 export default Orders;

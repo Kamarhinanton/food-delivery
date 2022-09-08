@@ -11,7 +11,7 @@ const HeadOrder = () => {
         <li>Create Status</li>
       </ul>
     </div>
-  )
+  );
 }
 
 export default HeadOrder;
