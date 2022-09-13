@@ -1,9 +1,9 @@
-import "./HeadOrder.scss";
+import "../Orders.scss";
 
 const HeadOrder = () => {
   return (
-    <div className="head-order">
-      <ul className="head-order__content">
+    <div className="order-component">
+      <ul className="order-component__content">
         <li>Order Logo</li>
         <li>Order ID</li>
         <li>Order Name</li>

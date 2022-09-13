@@ -1,4 +1,4 @@
-import '../HeadOrder/HeadOrder.scss'
+import '../Orders.scss'
 
 const Order = ({
                  orderId,
@@ -8,8 +8,8 @@ const Order = ({
                  orderImage
                }) => {
   return (
-    <div className='head-order'>
-      <ul className='head-order__content light'>
+    <div className='order-component'>
+      <ul className='order-component__content light'>
         <li>
           <span>
             <img src={orderImage} alt="logo"/>
