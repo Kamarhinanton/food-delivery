@@ -15,11 +15,10 @@ const orderReducer = (state = initialState, action) => {
   const {type, payload} = action
   switch (type) {
     case SET_ORDERS :
-      let newOrders = {orders: payload};
-      let stateCopy = {...state};
-      stateCopy.orders = [...state.orders];
-      newOrders.orders.map(order => stateCopy.orders.push(order));
-      return stateCopy;
+      return {
+        ...state,
+        orders: state.orders.concat(payload)
+      }
     case SET_OFFSET:
       return {
         ...state,
