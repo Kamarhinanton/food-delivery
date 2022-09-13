@@ -3,21 +3,28 @@ import HeadOrder from "./HeadOrder/HeadOrder";
 import Order from "./Order/Order";
 import {useEffect} from "react";
 
-const Orders = (props) => {
+const Orders = ({
+                  orders,
+                  offset,
+                  limit,
+                  total,
+                  getOrders,
+                  setOffset
+                }) => {
   useEffect(() => {
     getMoreOrders()
   }, []);
 
   const getMoreOrders = () => {
-    props.getOrders(props.order.offset, props.order.limit);
-    props.setOffset(props.order.offset + props.order.limit);
+    getOrders(offset, limit);
+    setOffset(offset + limit);
   }
 
   const setDisabled = () => {
-    return props.order.orders.length == props.order.total;
+    return orders.length === total;
   }
 
-  let orderLinks = props.order.orders.map((item, id) => <Order
+  const orderLinks = orders.map((item, id) => <Order
     key={id}
     orderId={item.orderId}
     orderName={item.establishment.establishmentName}
@@ -31,7 +38,17 @@ const Orders = (props) => {
       <HeadOrder/>
       {orderLinks}
       <div>
-        {setDisabled() ? <button disabled>Load more</button> : <button onClick={getMoreOrders}>Load more</button>}
+        {
+          setDisabled() ? (
+            <button disabled>
+              Load more
+            </button>
+          ) : (
+            <button onClick={getMoreOrders}>
+              Load more
+            </button>
+          )
+        }
       </div>
     </div>
   );
